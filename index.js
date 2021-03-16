@@ -1,3 +1,8 @@
+import { Beer } from './Beer.js';
+
+// init instance
+const beer = new Beer();
+
 // variables
 const urlBase = "https://api.punkapi.com/v2/beers?page=";
 const filterABV = document.getElementById("filterABV");
@@ -8,8 +13,8 @@ const nextPage = document.getElementById("nextPage");
 let optionsABV = "", optionsIBU = "", page = 1;
 
 // filters
-filterABV.addEventListener("change", e => {
-   const value = e.target.value; 
+filterABV.addEventListener("change", ({target}) => {
+   const { value } = target;
    
    switch (value) {
         case "all":
@@ -30,8 +35,8 @@ filterABV.addEventListener("change", e => {
    getBeers();
 });
 
-filterIBU.addEventListener("change", e => {
-   const value = e.target.value; 
+filterIBU.addEventListener("change", ({ target}) => {
+    const { value } = target;
    
    switch (value) {
         case "all":
